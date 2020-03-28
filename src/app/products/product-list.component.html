@@ -1,0 +1,32 @@
+<div>
+    <h2>{{title}}</h2>
+</div>
+<p>&nbsp;</p>
+<div>
+        <input type="text" placeholder="Nom du médicament recherché"> <button>Rechercher</button>
+</div>
+<p>&nbsp;</p>
+<div>
+    <table class="table table-responsive table-striped" *ngIf='medocs && medocs.length>0'>
+        <thead>
+            <tr>
+                
+                <th>Nom</th>
+                <th>Date achat</th>
+                <th>Date Péremtion</th>
+                <th>Déjà utilisé</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let medoc of medocs'>
+                <td>{{medoc.nom}}</td>
+                <td>{{medoc.dateAchat}}</td>
+                <td>{{medoc.dateExpirartion}}</td>
+                <td><input type="checkbox" [checked]="medoc.estOuvert"/></td>
+                <td>{{medoc.description}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
