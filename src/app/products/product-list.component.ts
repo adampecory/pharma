@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
 })
 export class ProducListComponent {
     title : string = "Liste des médicaments";
-
+    imgUrl : string = 'assets\\images\\medoc.jpg';
+    imgWidth : number = 100;
+    imgShow : boolean = false;
+    filteredValue : string ='dol';
+    
     medocs : any[] = [
         {
             nom:'Doliprane 500mg',
@@ -23,4 +27,8 @@ export class ProducListComponent {
             description: 'Effervescent Most de têtes, douleurs'
         }
     ]
+
+    showImage() : void {
+        this.imgShow = !this.imgShow;
+    }
 }

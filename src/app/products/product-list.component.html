@@ -3,14 +3,19 @@
 </div>
 <p>&nbsp;</p>
 <div>
-        <input type="text" placeholder="Nom du médicament recherché"> <button>Rechercher</button>
+        <input type='text' [(ngModel)]='filteredValue' placeholder='Nom du médicament recherché'> <button>Rechercher</button> <br>
+        filtré par : {{filteredValue}}
 </div>
 <p>&nbsp;</p>
 <div>
     <table class="table table-responsive table-striped" *ngIf='medocs && medocs.length>0'>
         <thead>
             <tr>
-                
+                <th>
+                    <button class="btn btn-default btn-primary" (click)='showImage()'>
+                        {{ imgShow ? 'Hide' : 'Show'}} Image
+                    </button>
+                </th>
                 <th>Nom</th>
                 <th>Date achat</th>
                 <th>Date Péremtion</th>
@@ -20,9 +25,12 @@
         </thead>
         <tbody>
             <tr *ngFor='let medoc of medocs'>
+                <td>
+                    <img [src]='imgUrl' [style.width.px]='imgWidth' *ngIf='imgShow' />
+                </td>
                 <td>{{medoc.nom}}</td>
-                <td>{{medoc.dateAchat}}</td>
-                <td>{{medoc.dateExpirartion}}</td>
+                <td>{{medoc.dateAchat | date : 'dd/MM/yyyy hh:mm:ss'}}</td>
+                <td>{{medoc.dateExpiration}}</td>
                 <td><input type="checkbox" [checked]="medoc.estOuvert"/></td>
                 <td>{{medoc.description}}</td>
                 
