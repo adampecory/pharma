@@ -7,5 +7,6 @@ export interface IMedoc {
     cible: string,
     estOuvert: boolean,
     categorie: string,
-    description: string
+    description: string,
+    note: number
 }

@@ -3,7 +3,7 @@
 </div>
 <p>&nbsp;</p>
 <div>
-        <input type='text' [(ngModel)]='filteredValue' placeholder='Nom du médicament recherché'> <button>Rechercher</button> <br>
+        <input type='text' [(ngModel)]='filteredValue' placeholder='Nom du médicament recherché'><br>
         filtré par : {{filteredValue}}
 </div>
 <p>&nbsp;</p>
@@ -17,10 +17,10 @@
                     </button>
                 </th>
                 <th>Nom</th>
-                <th>Date achat</th>
                 <th>Date Péremtion</th>
                 <th>Déjà utilisé</th>
                 <th>Description</th>
+                <th>Note</th>
             </tr>
         </thead>
         <tbody>
@@ -29,11 +29,10 @@
                     <img [src]='imgUrl' [style.width.px]='imgWidth' *ngIf='imgShow' />
                 </td>
                 <td>{{medoc.nom | convertToSpace:'-'}}</td>
-                <td>{{medoc.dateAchat | date : 'dd/MM/yyyy hh:mm:ss'}}</td>
-                <td>{{medoc.dateExpiration}}</td>
-                <td><input type="checkbox" [checked]="medoc.estOuvert"/></td>
+                <td>{{medoc.dateExpiration | date : 'dd/MM/yyyy hh:mm:ss'}}</td>
+                <td><input type="checkbox" [checked]="medoc.estOuvert"/></td>               
                 <td>{{medoc.description}}</td>
-                
+                <td><app-star [note]='medoc.note' (ratingClick)='onRatingClick($event)'></app-star></td>
             </tr>
         </tbody>
     </table>
