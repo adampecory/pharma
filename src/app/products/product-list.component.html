@@ -28,7 +28,7 @@
                 <td>
                     <img [src]='imgUrl' [style.width.px]='imgWidth' *ngIf='imgShow' />
                 </td>
-                <td>{{medoc.nom}}</td>
+                <td>{{medoc.nom | convertToSpace:'-'}}</td>
                 <td>{{medoc.dateAchat | date : 'dd/MM/yyyy hh:mm:ss'}}</td>
                 <td>{{medoc.dateExpiration}}</td>
                 <td><input type="checkbox" [checked]="medoc.estOuvert"/></td>
