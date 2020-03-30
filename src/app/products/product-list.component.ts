@@ -11,7 +11,16 @@ export class ProducListComponent {
     imgUrl: string ='assets\\images\\medoc.jpg';
     imgWidth: number = 100;
     imgShow: boolean = false;
-    filteredValue: 'dol';
+    medocsList: IMedoc[];
+
+    private _filteredValue: string = '';
+    get filteredValue () {
+        return this._filteredValue;
+    }
+    set filteredValue (val: string) {
+        this._filteredValue=val;
+        this.medocsList = this._filteredValue ? this.searchList(this._filteredValue) : this.medocs;
+    }
 
     medocs: IMedoc[] = [
         {
@@ -38,7 +47,20 @@ export class ProducListComponent {
         }
     ];
 
+    constructor() {
+        this.medocsList = this.medocs;
+        this.filteredValue = '';
+    }
+
     showImage(): void {
         this.imgShow = !this.imgShow;
     }
+
+    searchList(filterBy: string): IMedoc[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        return this.medocs.filter((elt : IMedoc) => 
+            elt.nom.toLocaleLowerCase().indexOf(filterBy)!==-1 );
+    }
+
+
 }
