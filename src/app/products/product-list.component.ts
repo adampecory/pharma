@@ -3,7 +3,8 @@ import { IMedoc } from '../models/medoc';
 
 @Component({
     selector : 'app-productlist',
-    templateUrl : './product-list.component.html'
+    templateUrl : './product-list.component.html',
+    styleUrls: ['./product-list.component.css']
 })
 export class ProducListComponent {
     title: string = 'Liste des médicaments';
