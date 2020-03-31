@@ -17,6 +17,7 @@ export class ProducListComponent implements OnInit {
     imgShow: boolean = false;
     medocs: IMedoc[] = [];
     medocsList: IMedoc[];
+    errorMessage: string = '';
 
     private _filteredValue: string = '';
     get filteredValue () {
@@ -47,8 +48,13 @@ export class ProducListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.medocs = this.productService.getModocs();
-        this.medocsList = this.medocs;
+        this.productService.getMedocs().subscribe({
+            next: data => {
+                this.medocs = data;
+                this.medocsList = this.medocs;
+            },
+            error : err => this.errorMessage = err
+        });
     }
 
 }
