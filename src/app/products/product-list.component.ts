@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IMedoc } from '../models/medoc';
-import { $$ } from 'protractor';
+import { ProductService } from './product.service';
 
 @Component({
     selector : 'app-productlist',
     templateUrl : './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
-export class ProducListComponent {
+export class ProducListComponent implements OnInit {
+
+
+
     title: string = 'Liste des médicaments';
     imgUrl: string ='assets\\images\\medoc.jpg';
     imgWidth: number = 100;
     imgShow: boolean = false;
+    medocs: IMedoc[] = [];
     medocsList: IMedoc[];
 
     private _filteredValue: string = '';
@@ -23,36 +27,8 @@ export class ProducListComponent {
         this.medocsList = this._filteredValue ? this.searchList(this._filteredValue) : this.medocs;
     }
 
-    medocs: IMedoc[] = [
-        {
-            nom: 'Doliprane 500-mg',
-            dateAchat: '01/01/2020',
-            dateExpiration: '02/01/2020',
-            estOuvert: false,
-            description: 'Mots de têtes, douleurs',
-            destinataire : 'Aly',
-            cible: 'Enfant',
-            posologie: '3fois par jour', 
-            categorie: 'DOULEUR',
-            note: 3
-        },
-        {
-            nom: 'Efferalgan 1000',
-            dateAchat: '02/01/2020',
-            dateExpiration: '02/01/2021',
-            estOuvert: true,
-            description: 'Effervescent Most de têtes, douleurs',
-            destinataire : 'Alain',
-            cible: 'Adulte',
-            posologie: '2 fois par jour', 
-            categorie: 'DOULEUR',
-            note : 4
-        }
-    ];
 
-    constructor() {
-        this.medocsList = this.medocs;
-        this.filteredValue = '';
+    constructor(private productService: ProductService) {
     }
 
     showImage(): void {
@@ -68,6 +44,11 @@ export class ProducListComponent {
     onRatingClick(msg: string): void {
         this.title = "Liste des Mediacaments " + msg;
         console.log(event);
+    }
+
+    ngOnInit(): void {
+        this.medocs = this.productService.getModocs();
+        this.medocsList = this.medocs;
     }
 
 }
