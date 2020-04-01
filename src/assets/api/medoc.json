@@ -1,0 +1,13 @@
+{
+    "id": 4,
+    "nom": "Dapan",
+    "dateAchat": "02/01/2020",
+    "dateExpiration": "02/01/2021",
+    "estOuvert": true,
+    "description": "Mots de ventre",
+    "destinataire ": "Noura",
+    "cible": "Adulte",
+    "posologie": "2 fois par jour", 
+    "categorie": "DOULEUR",
+    "note ": 4
+}

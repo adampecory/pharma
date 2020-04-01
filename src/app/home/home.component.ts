@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  imgBoite: string = 'assets/images/boite.jpg';
+  title: string = 'Votre boite à pharmacie en toute simplicite';
+  
   ngOnInit(): void {
   }
 

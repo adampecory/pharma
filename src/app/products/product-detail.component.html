@@ -1,3 +1,6 @@
-<div>
-    Product detail
+<div class='card-header' *ngIf='product'>
+    Medicament - {{product.nom}} - {{product.id}}
+</div>
+<div class='card-footer'>
+    <button (click)='onBack()' class="btn btn-default btn-primary" type="button">Back</button>
 </div>

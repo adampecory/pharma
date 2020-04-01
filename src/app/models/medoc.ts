@@ -1,4 +1,5 @@
 export interface IMedoc {
+    id: number,
     nom: string,
     dateAchat: string,
     dateExpiration: string,

@@ -28,7 +28,11 @@
                 <td>
                     <img [src]='imgUrl' [style.width.px]='imgWidth' *ngIf='imgShow' />
                 </td>
-                <td>{{medoc.nom | convertToSpace:'-'}}</td>
+                <td>
+                    <a [routerLink]="['/detail',medoc.id]">
+                        {{medoc.nom | convertToSpace:'-'}}
+                    </a>
+                </td>
                 <td>{{medoc.dateExpiration | date : 'dd/MM/yyyy hh:mm:ss'}}</td>
                 <td><input type="checkbox" [checked]="medoc.estOuvert"/></td>               
                 <td>{{medoc.description}}</td>

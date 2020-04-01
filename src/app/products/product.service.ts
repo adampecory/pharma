@@ -9,7 +9,7 @@ import { catchError, tap } from "rxjs/operators";
 export class ProductService {
 
     constructor(private http:HttpClient){}
-    private url = 'assets/api/product.json';
+    private url = 'assets/api/medocs.json';
 
     getMedocs(): Observable<IMedoc[]> {
         return this.http.get<IMedoc[]>(this.url).pipe(

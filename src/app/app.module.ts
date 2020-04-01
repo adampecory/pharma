@@ -9,8 +9,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { ProductDetailComponent } from './products/product-detail.component';
 import { HomeComponent } from './home/home.component';
+import { ProductDetailGuard } from './products/product-detail.guard';
 const appRoutes: Routes = [
-  { path: 'detail/:id', component: ProductDetailComponent },
+  { path: 'detail/:id', component: ProductDetailComponent, canActivate: [ProductDetailGuard] },
   { path: 'home', component: HomeComponent },
   { path: 'medocs', component: ProducListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
