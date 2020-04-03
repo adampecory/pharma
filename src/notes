@@ -1,0 +1,15 @@
+Deploy angular on IIS 
+https://medium.com/angular-in-depth/deploy-an-angular-application-to-iis-60a0897742e7
+
+to install in a subfolder pharma of localhost
+ng build --prod
+ng build --base-href "/pharma/" --prod
+
+Good link
+https://www.youtube.com/watch?v=VkGmaVm6-IQ
+
+Url DEV : http://localhost:62914/api/medicament
+Url TST : http://localhost/pharma/home
+
+CORS : 
+Attentions les cors ne fonctione pas en DEV

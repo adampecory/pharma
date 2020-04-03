@@ -9,9 +9,12 @@ import { catchError, tap } from "rxjs/operators";
 export class ProductService {
 
     constructor(private http:HttpClient){}
-    private url = 'assets/api/medocs.json';
-
+    //private url = 'assets/api/medocs.json';
+    //private url = 'http://localhost:62914/api/medicament';
+    private url = 'http://localhost/pharmaws/api/medicament';
+    
     getMedocs(): Observable<IMedoc[]> {
+        console.log(this.http.get<IMedoc[]>(this.url));
         return this.http.get<IMedoc[]>(this.url).pipe(
             tap(data=>console.log('all: '+ JSON.stringify(data))),
             catchError(this.handleError)
