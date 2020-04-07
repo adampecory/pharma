@@ -1,0 +1,39 @@
+<form #form="ngForm" (submit)='onClick(form)'>
+    <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" name="nom" id="nom" placeholder="Efferalgan 500mg" [(ngModel)]='medoc.nom'
+        required minlength="4"
+        #nameField="ngModel" [class.field-error]='form.submitted && nameField.invalid' />
+        <div class='alert alert-danger' [hidden]="!form.submitted || nameField.valid">
+            <div *ngIf='nameField.errors'>
+                <div *ngIf='nameField.errors.required'>
+                    Le nom est obligatoire
+                </div>
+                <div *ngIf="nameField.errors.minlength">
+                    Le nom doit contenir un minimum de 4 caractères.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="nom">Destinataire</label>
+        <input type="text" class="form-control" name="destinataire" id="destinataire" [(ngModel)]='medoc.destinataire'>
+    </div>
+    <div class="form-group">
+        <label for="nom">Posologie</label>
+        <input type="text" class="form-control" name="posologie" id="posologie" [(ngModel)]='medoc.posologie'>
+    </div>
+    <div class="form-group">
+        <label for="nom">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3"  [(ngModel)]='medoc.description'></textarea>
+    </div>
+    <div class="form-group">
+        <label for="nom">Date d'expiration</label>
+        <input type="date" class="form-control" name="dateExpiration" id="dateExpiration"  [(ngModel)]='medoc.dateExpiration'>
+    </div>    
+    <div *ngIf='postError' class="alert-danger">
+        Une erreur s'est produite : {{postErrorMessage}}
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>

@@ -3,6 +3,7 @@
     "nom": "Dapan",
     "dateAchat": "02/01/2020",
     "dateExpiration": "02/01/2021",
+    "dateOuverture": "02/01/2020",
     "estOuvert": true,
     "description": "Mots de ventre",
     "destinataire ": "Noura",

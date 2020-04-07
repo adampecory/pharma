@@ -6,10 +6,12 @@ import { ProductDetailGuard } from './product-detail.guard';
 import { ConvertToSpacePipe } from '../shared/convert-to-space.pipe';
 import { Routes, RouterModule } from '@angular/router';
 import { StarComponent } from '../shared/star.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, NgForm} from '@angular/forms';
+import { ProductAddComponent } from '../product-add/product-add.component';
 const productRoutes: Routes = [
   { path: 'detail/:id', component: ProductDetailComponent, canActivate: [ProductDetailGuard] },
-  { path: 'medocs', component: ProducListComponent }
+  { path: 'medocs', component: ProducListComponent },
+  { path: 'addmedoc', component: ProductAddComponent }
 ]
 
 
@@ -23,7 +25,11 @@ const productRoutes: Routes = [
     ProducListComponent,
     ProductDetailComponent,
     ConvertToSpacePipe,
-    StarComponent
+    StarComponent,
+    ProductAddComponent
+  ],
+  exports: [
+    NgForm
   ]
 
 })

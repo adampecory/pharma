@@ -1,7 +1,9 @@
 <div>
     <h2>{{title}}</h2>
 </div>
-<p>&nbsp;</p>
+<p>
+    <a [routerLink]="['/addmedoc']">Ajouter</a>
+</p>
 <div>
         <input type='text' [(ngModel)]='filteredValue' placeholder='Nom du médicament recherché'><br>
         filtré par : {{filteredValue}}

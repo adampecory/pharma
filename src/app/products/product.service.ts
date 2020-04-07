@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { IMedoc } from '../models/medoc';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { catchError, tap } from "rxjs/operators";
 @Injectable({
     providedIn: 'root'
@@ -19,6 +19,10 @@ export class ProductService {
             tap(data=>console.log('all: '+ JSON.stringify(data))),
             catchError(this.handleError)
         );
+    }
+
+    AddMedoc(product: IMedoc): Observable<any> {
+        return this.http.post("https://putsreq.com/UfxxSisniitYCn01sQaf",product);
     }
 
     private handleError(err: HttpErrorResponse) {

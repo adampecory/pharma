@@ -1,15 +1,38 @@
 Deploy angular on IIS 
 https://medium.com/angular-in-depth/deploy-an-angular-application-to-iis-60a0897742e7
-
+https://www.youtube.com/watch?v=VkGmaVm6-IQ (best)
 to install in a subfolder pharma of localhost
 ng build --prod
 ng build --base-href "/pharma/" --prod
 
-Good link
-https://www.youtube.com/watch?v=VkGmaVm6-IQ
-
-Url DEV : http://localhost:62914/api/medicament
-Url TST : http://localhost/pharma/home
+Server Url
+Url WS DEV : http://localhost:62914/api/medicament
+Url Client : http://localhost/pharma/home
 
 CORS : 
-Attentions les cors ne fonctione pas en DEV
+Attentions les cors ne fonctione par défaut en DEV
+https://medium.com/@alexxsanya/fix-cors-in-angular-8-using-cli-proxy-configuration-787589f06f94
+
+ApiDemo : PUTSREQ
+https://putsreq.com/UfxxSisniitYCn01sQaf/inspect
+https://github.com/phstc/putsreq
+/*ERROR RESPONSE
+response.status = 400
+response.body = {errorMessage: "Impossible d'enregistrer le produit"}
+//*/
+//*SUCCES RESPONSE
+response.body ={
+    "id": 4,
+    "nom": "Dapan",
+    "dateAchat": "02/01/2020",
+    "dateExpiration": "02/01/2021",
+    "dateOuverture": "02/01/2020",
+    "estOuvert": true,
+    "description": "Mots de ventre",
+    "destinataire ": "Noura",
+    "cible": "Adulte",
+    "posologie": "2 fois par jour", 
+    "categorie": "DOULEUR",
+    "note ": 4
+};
+//*/

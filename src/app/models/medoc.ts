@@ -3,6 +3,7 @@ export interface IMedoc {
     nom: string,
     dateAchat: string,
     dateExpiration: string,
+    dateOuverture: string,
     posologie: string,
     destinataire: string,
     cible: string,

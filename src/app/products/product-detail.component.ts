@@ -24,7 +24,8 @@ export class ProductDetailComponent implements OnInit {
             "cible": "Adulte",
             "posologie": "2 fois par jour", 
             "categorie": "DOULEUR",
-            "note": 4
+            "note": 4,
+            "dateOuverture":""
         }
     }
 
